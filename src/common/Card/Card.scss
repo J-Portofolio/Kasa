@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.carte {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    box-shadow: none;
+
+    &:hover {
+        box-shadow: $ombre-carte-hover;
+
+        .carte-image {
+            transform: scale(1.1);
+        }
+    }
+
+    .carte-titre {
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0;
+        margin: 20px;
+    }
+
+    .carte-image {
+        transition: transform 0.4s ease;
+    }
+}

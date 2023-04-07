@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.accueil-banniere {
+    margin-bottom: 12px;
+    height: 111px;
+
+    @include responsive($tablette) {
+        margin-bottom: 43px;
+    }
+
+    @include responsive($pc) {
+        height: 223px;
+    }
+
+    h1 {
+        font-size: 24px;
+
+        @include responsive($pc) {
+            font-size: 48px;
+        }
+    }
+}
+
+.accueil-cartes {
+
+    @include responsive($tablette) {
+        border-radius: 25px;
+        padding: 1.5%;
+    }
+
+    article {
+        height: 255px;
+        margin: 10px 0;
+
+        @include responsive($tablette) {
+            margin: 1.5% auto;
+
+            &:nth-last-of-type(2), &:last-of-type {
+                margin: 1.5%;
+            }
+        }
+
+        @include responsive($pc) {
+            height: 340px;
+        }
+    }
+}

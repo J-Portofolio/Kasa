@@ -1,0 +1,120 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.logement-photos {
+    height: 255px;
+    margin-bottom: 15px;
+
+    @include responsive($tablette) {
+        height: 415px;
+        margin-bottom: 30px;
+    }
+}
+
+.logement-intitule {
+    margin-bottom: 16px;
+
+    @include responsive($tablette) {
+        margin-bottom: 25px;
+    }
+
+    article:first-of-type {
+        @include responsive($smartphone, $tablette) {
+            margin-bottom: 16px;
+        }
+    }
+
+    h1 {
+        font-size: 18px;
+        margin: auto;
+
+        @include responsive($pc) {
+            font-size: 36px;
+        }
+    }
+
+    p {
+        font-size: 14px;
+
+        @include responsive($pc) {
+            font-size: 18px;
+        }
+    }
+
+    .identite {
+        margin: 0;
+
+        .photo-proprio {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin: 0;
+            display: inline-block;
+            overflow: hidden;
+
+            @include responsive($tablette) {
+                width: 64px;
+                height: 64px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .nom-proprio {
+            font-size: 12px;
+            width: min-content;
+
+            @include responsive($tablette) {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.logement-informations {
+    .accordeon {
+        width: 100%;
+
+        @include responsive($pc) {
+            flex: 0 0 48%;
+        }
+
+        .accordeon-en-tete {
+            height: 30px;
+
+            @include responsive($tablette) {
+                height: 52px;
+            }
+
+            .accordeon-titre {
+                @include responsive($tablette) {
+                    font-size: 18px !important;
+                }
+            }
+        }
+
+        &.ouvert {
+            .accordeon-contenu {
+                height: 143px !important;
+                padding: 23.2px 6.91px 10px 11.51px;
+
+                @include responsive($tablette) {
+                    height: 250px !important;
+                    padding: 40px 12px 10px 20px;
+                }
+
+                .accordeon-texte {
+                    font-size: 12px;
+                    line-height: 17.11px;
+        
+                    @include responsive($tablette) {
+                        font-size: 18px;
+                        line-height: 25.67px;
+                    }
+                }
+            }
+        }
+    }
+}

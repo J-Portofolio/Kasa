@@ -1,0 +1,10 @@
+[
+    {
+        "url" : "/",
+        "nom" : "Accueil"
+    },
+    {
+        "url" : "/a-propos",
+        "nom" : "À propos"
+    }    
+]

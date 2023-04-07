@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.accordeon {
+    border-radius: 5px;
+    overflow: hidden;
+
+    @include responsive($tablette) {
+        border-radius: 10px;
+    }
+
+    .accordeon-en-tete {
+        position: relative;
+        padding: 0 12px;
+        border-radius: 5px;
+
+        @include responsive($tablette) {
+            padding: 0 20px;
+            border-radius: 10px;
+        }
+
+        .accordeon-titre {
+            margin: 0;
+            font-size: 13px;
+
+            @include responsive($tablette) {
+                font-size: 24px;
+            }
+        }
+
+        .accordeon-tiroir {
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            .accordeon-icone {
+                transition: transform 0.3s ease;
+                transform: rotate(-90deg);
+                height: 18.42px;
+                width: 8.98px;
+
+                @include responsive($tablette) {
+                    height: 26.4px;
+                    width: 15.56px;
+                }
+            }
+        }
+    }
+
+    .accordeon-contenu {
+        text-align: justify;
+        opacity: 0;
+        max-height: 0;
+        padding: 0;
+        overflow-y: scroll;
+        text-overflow: ellipsis;
+        transition: all 0.4s ease;
+
+        .accordeon-texte {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &.ouvert {
+        .accordeon-icone {
+            transform: rotate(90deg) !important;
+        }
+
+        .accordeon-contenu {
+            max-height: 300px;
+            height: auto;
+            padding: 10px;
+            opacity: 1;
+        }
+    }
+}

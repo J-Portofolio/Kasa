@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.liens-header {
+    list-style: none;
+    padding: 0;
+
+    li {
+        .lien {
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: transform 0.4s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &::after {
+                content: '';
+                width: 100%;
+                height: 1px;
+                display: block;
+                background: $color-main;
+                opacity: 0;
+                transition: opacity 0.4s ease-out;
+            }
+
+            @include responsive($tablette) {
+                text-transform: none;
+                font-size: 24px;
+            }
+
+            &.actuel {
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

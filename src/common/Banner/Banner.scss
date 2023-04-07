@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.banniere {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+
+    @include responsive($tablette) {
+        border-radius: 25px;
+    }
+
+    .banniere-titre {
+        @include responsive($smartphone, $tablette) {
+            width: 225px;
+            margin: 16px;
+        }
+    }
+}

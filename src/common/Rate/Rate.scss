@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.note {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .etoile {
+        width: 13.5px;
+        height: 13px;
+
+        @include responsive($tablette) {
+            width: 25px;
+            height: 24px;
+        }
+        
+        &.rouge {
+            path {
+                fill: $color-main;
+            }
+        }
+    }
+}

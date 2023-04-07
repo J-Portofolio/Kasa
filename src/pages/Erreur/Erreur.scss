@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+
+.erreur-informations {
+    .erreur-titre {
+        font-family: 'Montserrat-Bold';
+        margin: 198px auto 11px auto;
+        font-size: 96px;
+    
+        @include responsive($tablette) {
+            margin: 70px auto;
+            font-size: 288px;
+        }
+    }
+    
+    .erreur-texte {
+        font-size: 18px;
+        margin: 0;
+    
+        @include responsive($tablette) {
+            font-size: 36px;
+        }
+    }
+    
+    .erreur-lien {
+        color: inherit;
+        font-size: 14px;
+        margin: 133px auto 235px auto;
+        transition: transform 0.4s ease;
+    
+        &:hover {
+            transform: scale(1.1);
+        }
+    
+        @include responsive($tablette) {
+            font-size: 18px;
+            margin: 182px auto 159px auto;
+        }
+    }    
+}

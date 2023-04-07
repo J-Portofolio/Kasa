@@ -1,0 +1,5 @@
+// Animation provoquant un effet de fondu à l'apparition de l'élément concerné.
+@keyframes fadein{
+    from{opacity:0;}
+    to{opacity:1;}
+}

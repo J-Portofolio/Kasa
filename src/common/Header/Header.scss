@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
+
+.header {
+    margin: $margin-header;
+
+    .logo {
+        width: 145px;
+        height: 47px;
+        aspect-ratio: 1/1;
+
+        @include responsive($tablette) {
+            width: 210.32px;
+            height: 68px;
+        }
+    }
+}

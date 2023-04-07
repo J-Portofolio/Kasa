@@ -1,0 +1,66 @@
+// Longueurs minimum d'écrans périphériques //
+$smartphone: 0px;
+$tablette: 768px;
+$pc: 1200px;
+
+// Polices //
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: local('Montserrat-Regular'),
+    url('../fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: local('Montserrat-Bold'),
+    url('../fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+// Texte
+$police-texte: 'Montserrat-Regular';
+
+// Couleurs //
+$color-main: #FF6060;
+$color-second: #E5E5E5;
+$color-third: #F7F7F7;
+$white: white;
+$black: black;
+$linear-red: linear-gradient(180deg, rgba(255, 96, 96, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+// Marges //
+$margin-header: 4% 6%;
+$margin-content: 0 6% 4%;
+
+// Ombres //
+$ombre-carte-hover: 0px 5px 10px 5px darken($color-second, 15%);
+
+// Listes //
+$liste-couleurs: (
+    "main": $color-main,
+    "second": $color-second,
+    "third": $color-third,
+    "white": $white,
+    "black": $black,
+    "linear-red": $linear-red
+);
+
+$liste-medias: (
+    "sm": $smartphone,
+    "sm-md": $smartphone $tablette,
+    "sm-lg": $smartphone $pc,
+    "md": $tablette,
+    "md-lg": $tablette $pc,
+    "lg": $pc
+);
+
+$liste-alignements: (
+    center,
+    start,
+    end
+);
+
+$liste-displays: (
+    block,
+    flex,
+    none
+);

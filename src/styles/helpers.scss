@@ -1,0 +1,156 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'animations.scss';
+
+.fadein {
+    animation:fadein 0.4s forwards;
+    -webkit-animation:fadein 0.4s forwards;
+}
+
+.flex-column {
+    @include responsiveClass(){
+        flex-direction: column;
+    }
+}
+
+.flex-wrap {
+    @include responsiveClass() {
+        flex-wrap: wrap;
+    }
+}
+
+.image-bg {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.list-style-none {
+    list-style: none;
+}
+
+.parentClicable {
+    position: relative;
+
+    a {
+        position: absolute;
+        inset: 0;
+    }
+}
+
+.space-between {
+    @include responsiveClass() {
+        justify-content: space-between;
+    }
+}
+
+.space-around {
+    @include responsiveClass() {
+        justify-content: space-around;
+    }
+}
+
+@each $couleur, $valeur in $liste-couleurs {
+    .color-#{$couleur} {
+        @include responsiveClass() {
+            color: $valeur;
+        }
+    }
+
+    .bg-#{$couleur} {
+        @include responsiveClass() {
+            @if $valeur == $color-main {
+                color: $white;
+            }
+
+            @if $valeur == $color-second or $valeur == $color-third {
+                color: $color-main;
+            }
+
+            background: $valeur;
+
+            @if (str-index($couleur, "linear-") == null) {
+                @for $alpha from 1 through 10 {
+                    &.alpha-0-#{$alpha} {
+                        background: rgba($valeur, $alpha / 10);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@each $alignement in $liste-alignements {
+    .justify-#{$alignement} {
+        @include responsiveClass() {
+            justify-content: $alignement;
+        }
+    }
+
+    .align-#{$alignement} {
+        @include responsiveClass() {
+            align-items: $alignement;
+        }
+    }
+
+    .text-#{$alignement} {
+        @include responsiveClass() {
+            text-align: $alignement;
+        }
+    }
+}
+
+@each $display in $liste-displays {
+    .display-#{$display} {
+        @include responsiveClass() {
+            display: $display;
+        }
+    }
+}
+
+@for $alpha from 1 through 10 {
+    .opacity-0-#{$alpha} {
+        @include responsiveClass() {
+            opacity: $alpha / 10;
+        }
+    }
+}
+
+@for $pourcentage from 1 through 100 {
+    .width-#{$pourcentage} {
+        @include responsiveClass() {
+            width: #{$pourcentage}+"%";
+        }
+    }
+
+    .height-#{$pourcentage} {
+        @include responsiveClass() {
+            height: #{$pourcentage}+"%";
+        }
+    }
+}
+
+@for $index from 1 through 5 {
+    .order-#{$index} {
+        @include responsiveClass() {
+            order: $index;
+        }
+    }
+
+    .z-index-#{$index} {
+        @include responsiveClass() {
+            z-index: $index;
+        }
+    }
+}
+
+@for $pxGap from 1 through 100 {
+    .gap-#{$pxGap} {
+        @include responsiveClass() {
+            gap: #{$pxGap}px;
+        }
+    }
+}

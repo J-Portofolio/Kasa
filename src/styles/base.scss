@@ -1,0 +1,31 @@
+@import 'variables';
+@import 'mixins.scss';
+
+html {
+    height: 100%;
+
+    body {
+        min-height: 100%;
+
+        font-family: $police-texte;
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        // Rendu React
+        #root{
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            width: 100%;
+
+            // Outlet
+            .contenuPage {
+                flex: 1;
+                margin: $margin-content;
+            }
+        }
+    }
+}

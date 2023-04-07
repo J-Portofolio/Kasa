@@ -1,0 +1,54 @@
+// Mixin permettant d'établir 
+// un seuil, si $max n'est pas renseigné,
+// ou une fourchette, si $max est renseigné,
+// de dimensions dans laquelle des propriété css seront appliquées.
+// Couvre les cas de figures où le périphérique passe en mode portrait ou paysage.
+@mixin responsive($min, $max:false) {
+    @if $max != false {
+        $max: $max - 1px;
+        @if $min == false {
+            @media (max-width:$max) and (orientation: landscape), (max-width:$max) and (orientation: portrait)  {
+                @content;
+            }
+        }
+        @else{
+            @media (min-width: $min) and (max-width:$max) and (orientation: landscape), (min-width: $min) and (max-width:$max) and (orientation: portrait) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @media (min-width: $min) and (orientation: landscape), (min-width: $min) and (orientation: portrait){
+            @content;
+        }
+    }
+}
+
+// Mixin à imbriquer dans un sélecteur, juste avant les propriétés de ce dernier,
+// de façon à ce que ces dernières soient imbriquées elles-même dans ce mixin.
+// Permet d'appliquer le principe du mixin 'responsive($min, $max)',
+// au travers de suffixes (-sm, -md et -lg) de valeurs d'attributs de classe html:
+// Exemples: 
+// - <h1 class="maClasse-md"> -> Le sélecteur de classe ne sera appliqué que pour le seuil spécifié de dimension.
+// - <li class="maClasse-sm-md"> -> Le sélecteur de classe ne sera appliqué que pour la fourchette spécifiées de dimensions.
+@mixin responsiveClass() {
+
+    @content;
+
+    @each $media, $width in $liste-medias {
+
+        @if type-of($width) == list {
+            @include responsive($min:nth($width, 1), $max:nth($width, 2)) {
+                &-#{$media} {
+                    @content;
+                }
+            }
+        } @else {
+            @include responsive($min:$width) {
+                &-#{$media} {
+                    @content;
+                }
+            }
+        }
+    }
+}
