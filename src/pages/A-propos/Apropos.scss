@@ -14,6 +14,7 @@
     .accordeon {
         border-radius: 5px !important;
         margin: 10px auto;
+        width: 100%;
 
         @include responsive($pc){
             margin: 15px auto;
